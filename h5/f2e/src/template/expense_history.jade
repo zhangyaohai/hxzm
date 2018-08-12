@@ -1,0 +1,34 @@
+extends layout/default.jade
+
+block head  
+  title preview
+  +css("/css/expense_history.css")
+
+block body
+  #app(v-cloak :class="{'hidden': !loaded}")
+    .header.row.flex-row-between
+      .col 状态
+      .col 时间
+      .col 金额
+      .col 账户余额
+    .nocharge(v-if='nofee')
+      .nochargecontent 暂无消费记录哦～
+    .container(v-else)
+      .row.flex-row-between(v-for="data in history", @click="data.type==10?goto(data.orderId):goto(0)")
+        .col.stream.flex-row-center
+          .line.flex-col-center
+            .line-top
+            .dot
+            .line-bottom
+          span {{ returnS(data.type) }}
+        .col {{ formatTime(data.createTime) }}
+        .col {{ data.amount.toFixed(2) }}
+        .col {{ data.balanceAfter.toFixed(2) }}
+
+
+block js
+  +js("/js/expense_history.js")
+
+
+  
+ 

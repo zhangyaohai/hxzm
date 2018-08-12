@@ -1,0 +1,19 @@
+extends layout/default.jade
+
+block head  
+  title 用户反馈
+  +css("/css/feedback.css")
+  
+block body 
+  #app
+    .content_fb
+      textarea(v-model="fbcontent", placeholder='请详细描述您所遇到的问题或有哪些建议', rows=3).content
+      button(@click='postContent()').solid.full-width(style='width: 85%;margin: 20px 0px') 提 交
+
+block js
+  +js("/js/feedback.js")
+
+
+
+  
+ 

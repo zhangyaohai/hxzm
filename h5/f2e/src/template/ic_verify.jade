@@ -1,0 +1,47 @@
+extends layout/default.jade
+
+block head  
+  title 实名认证
+  +css("/css/ic_verify.css")
+
+block body
+  #app(v-cloak)
+    a.rightmask(href="./home.html")
+        img.right(src="/img/home-hl.png")
+    .title 
+    .user-steps
+      .steps
+        .steplines
+          .stepline(:style="{'background-color': step1line}")
+          .stepline(style='background-color: #a9a9a9')
+          .stepline(style='background-color: #a9a9a9')
+        .stepdots
+          .stepbox
+            .stepdot
+          .stepbox
+            .stepdot
+          .stepbox
+            .stepdot(style='background-color: #a9a9a9; border: 1px solid #a9a9a9')
+            .stepdotend(style='background-color: #a9a9a9; border: 1px solid #a9a9a9')
+      .steps-button
+        button.rowbutton(:disabled='true') 手机绑定
+        button.rowbutton(:disabled='true') 实名认证
+        button.rowbutton(:disabled='true') 缴纳押金
+        button.rowbutton(:disabled='true')  开始用车
+    .inputbox
+      input.name(placeholder="请输入姓名" v-model="name")
+      .verifytype
+        .type
+          input.opt(type="radio" name="type" v-model="pickedType" value=1 checked)
+          lable.typetext 身份证
+        .type
+          input.opt(type="radio" name="type" v-model="pickedType" value=2)
+          lable.typetext 护照
+      input.name(placeholder="请输入证件号" v-model="number")
+
+    .padding-width
+      button.confirm.solid(@click="verify()", :disabled="!(name && number)") 确定
+
+block js
+  +js("/js/jweixin-1.0.0.js")
+  +js("/js/ic_verify.js")

@@ -1,0 +1,207 @@
+@import "./define"
+
+global-reset()
+
+*
+  box-sizing:border-box
+  -webkit-touch-callout: none
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  
+body
+  font-family: PingFangSC-Light, Helvetica Neue, sans-serif
+  background-color: #f1f1f1
+  
+a
+  text-decoration: none
+  cursor: pointer
+  color: #000
+ 
+[v-cloak] 
+  display: none
+  
+.hidden
+  display: none
+  
+.full-width
+  width: 100%
+  
+.padding-container
+  padding: 15px
+
+.flex-row-center
+  display: flex
+  align-items: center
+  flex-direction: row
+  justify-content: center
+  text-align: center
+
+.flex-row-between
+  display: flex
+  align-items: center
+  flex-direction: row
+  justify-content: center
+  text-align: center
+
+.flex-row-between:nth-child(even)
+  background: #eeeeee;
+
+.flex-col-center
+  display: flex
+  align-items: center
+  flex-direction: column
+  justify-content: center
+  text-align: center
+
+button
+  border: 0px  
+  
+button.solid
+  height: 50px
+  border-radius: 6px
+  font-size: 18px
+  color: #fff
+  background-color: $color-primary
+  &:disabled
+    background-color: $color-grey
+
+button.bordered
+  height: 50px
+  border-radius: 25px
+  font-size: 18px
+  color: #fff
+  background-color: $color-primary
+  border: 1px solid $color-primary
+  &:disabled
+    color: #fff
+    background-color: $color-grey
+    border: 1px solid $color-grey
+
+button.ubike__btn_primary, a.ubike__btn_primary, button.weui-vcode-btn.ubike__btn_primary
+  background-color: $color-primary
+  color: #fff
+  
+button.ubike__btn_primary:active, a.ubike__btn_primary:active
+  background-color: #00db70
+  color: #eef
+  
+button.weui-btn_disabled.ubike__btn_primary
+  background-color: $color-grey
+  color: rgba(0, 0, 0, 0.3)
+
+.weui-dialog__bd.ubike-dialog__bd
+  padding:0
+  margin: 0 .5em
+
+.ubike-block
+  padding-bottom:15px
+  position: relative
+
+.ubike-cells
+  margin:0
+  background-color: #fff;
+  font-size: 17px;
+  overflow: hidden;
+  position: relative;
+
+.weui-cell.ubike-cell
+  padding: 0;
+  margin: 10px 5px;
+  border: 1px solid #eee;
+  background-color: #f7f5f5;
+  height:45px
+
+.weui-cell.ubike-cell:before
+  border-top:none
+
+.weui-cell.ubike-cell .weui-input
+  color: #000
+
+.ubike-icon
+  width:40px
+  i
+    font-size:20px
+
+form
+  .form-control  
+    position: relative
+    margin: 10px 0px
+  
+input
+  border: 0px
+  font-size: 14px
+  
+  
+input.plain
+  height: 40px
+  border: none
+  border-bottom 1px solid $color-grey
+  
+input[type="radio"]
+  width: 20px
+  height: 20px
+  border-radius: 10px
+  border: 1px solid $color-grey
+  &:checked
+    box-shadow: inset 0px 0px 0px 3px #fff
+    background-color: $color-primary
+  
+
+.table
+  padding: 0px 15px
+  background-color: #fff
+  .row
+    display: flex
+    line-height: 50px
+    height: 50px
+    border-bottom: 1px solid #f1f1f1
+    align-items:center    
+    &:last-child
+      border-bottom: 0px
+    img.icon
+      width: 36px
+      height: 36px
+      margin-right: 10px
+    .pull-right
+      margin-left: auto
+
+
+.statusbar
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  z-index: 99;
+  opacity: 0;
+  -webkit-animation-name: fadeIn; /*动画名称*/
+  -webkit-animation-duration: 2s; /*动画持续时间*/
+  -webkit-animation-iteration-count: 1; /*动画次数*/
+  -webkit-animation-delay: 0s; /*延迟时间*/
+  .changebar
+    display:block;
+    height: 100%;
+    background: #0064B4;
+    .status_bar_content
+      text-align: center;
+      color: #fff;
+      font-weight: bolder;
+      padding: 4px 0px;
+      font-size: 12px;
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0.8; /*初始状态 透明度为0*/
+  }
+  50% {
+    opacity: 0.4; /*中间状态 透明度为0*/
+  }
+  100% {
+    opacity: 0; /*结尾状态 透明度为1*/
+  }
+}
+      
+
+        

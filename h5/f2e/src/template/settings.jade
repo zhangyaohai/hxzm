@@ -1,0 +1,19 @@
+extends layout/default.jade
+
+block head  
+  title 个人设置
+  
+block body 
+  #app
+    .table
+      a(@click="refund()").row
+         .title 退还押金
+    .padding-container
+      button.solid.full-width(@click="logout()") 退出登录
+
+block js
+  +js("/js/settings.js")
+
+
+  
+ 

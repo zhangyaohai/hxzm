@@ -1,0 +1,48 @@
+extends layout/default.jade
+
+block head
+    title 我的优拜
+    +css("/css/loading.css")
+    +css("/css/order_detail.css")
+
+block body
+  #app(:class="{'hidden':!wxloaded}")
+    .header(v-cloak)
+        img.bg(src="/img/order-detail-bg.png")
+        .overlay.flex-col-center
+          img.avatar(:src="avartar")
+          .name {{ user.realName }}
+          .flex-block
+              div
+                div.title 开始时间(min)
+                div.sub-title {{formatTime(orderInfo.startTime)}}
+              div
+                div.title 结束时间(min)
+                div.sub-title {{formatTime(orderInfo.endTime)}}
+          .line
+          .flex-block
+              div
+                div.title.primary {{orderInfo.time}}
+                div.sub-title 用车时长(min)
+              div
+                div.title.primary {{formatDistance(orderInfo.distance)}}
+                div.sub-title 骑行距离(m)
+              div
+                div.title.primary {{orderInfo.amount.toFixed(1)}}
+                div.sub-title 计费(元)
+          .solid.full-width(@click='share()')
+            img(src='/img/share-icon.png').shareicon
+            p.mycontent 分享我的行程
+        .mask-input(v-if="show", @click='dismiss()')
+          .mask-input-dialog
+            .input-dialog_hd
+            .input-dialog_bd
+              img(src='/img/share.png').show-dialog
+            .input-dialog_ft
+              button(@click='dismiss()').dismiss 知道了
+    #map.map-layer
+
+block js
+    +js("https://webapi.amap.com/maps?v=1.3&key=3ceeb40306848901aaaa05227096eaaf&plugin=AMap.Geolocation,AMap.Walking")
+    +js("/js/jweixin-1.0.0.js")
+    +js("/js/order_detail.js")

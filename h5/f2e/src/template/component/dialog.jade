@@ -1,0 +1,11 @@
+mixin mydialog(title, content, type, paraArray)
+  #mydialog
+    .ubike-mask
+    .ubike-dialog
+      .ubike-dialog_hd 
+        .ubike-dialog_hd_title #{title}
+      .ubike-dialog_bd #{content}
+      .ubike-dialog_ft
+        button.ubike-dialog-confirm(v-if=!(type===0)) 确定
+        button.ubike-dialog-confirm(v-if=!(type===1) @click='paraArray.function1()') 取消
+        button.ubike-dialog-confirm(v-if=!(type===1) @click='paraArray.function2()') 确定

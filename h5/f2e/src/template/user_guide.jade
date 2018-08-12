@@ -1,0 +1,96 @@
+extends layout/default.jade
+
+block head  
+  meta(http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate")
+  meta(http-equiv="Pragma" content="no-cache")
+  meta(http-equiv="Expires" content="0")
+  title 用户指南
+  +css("/css/user_guide.css")
+  
+block body 
+  .user_guide
+      .user_content
+        .user_guide_title 用户指南
+          .user_guide_sub_title 注册与账户
+          .user_guide_mini_title 收不到短信验证码怎么办？
+          .user_guide_line_content  如果您登录时迟迟收不到短信验证码，可按如下顺序检查：
+          .user_guide_line_content 1.检查您是否安装了短信拦截软件（如360，手机管家等），如有安装，可放行来自优拜的短信或暂时删除拦截软件，再次登录发送验证码即可。
+          .user_guide_line_content 2.如未安装短信拦截软件，请直接联系优拜的客服电话：021-61140695，我们将尽快为您处理。
+          .user_guide_mini_title 我的实名认证无法通过怎么办？
+          .user_guide_line_content  1.请您用简体中文输入您的姓名以及身份证号码，如果多次尝试仍然不通过，请联系优拜客服热线：021-61140695，我们将尽快为您处理。
+          
+          
+          .user_guide_sub_title 开关锁问题
+          .user_guide_mini_title 开不了锁怎么办？
+          .user_guide_line_content
+            div 扫码时请查看手机是否有开启蓝牙的提示：如果提示开启蓝牙，则请您的手机打开蓝牙后再扫码开锁，并在最后关锁前一直保持蓝牙连接状态，方便骑行中正常用车。如果没有开启蓝牙提示则请您直接扫码开锁。
+            div 如果开锁失败，请您再次尝试开锁，请点击故障上报，选择将自行车故障并告知我们，优拜会因您的关怀越变越好。
+          .user_guide_mini_title 关锁后不结束计算怎么办？
+          .user_guide_line_content  如果您关锁后2分钟后仍未收到结费通知，请按以下步骤排查。
+          .user_guide_line_content  1.查看您的手机操作系统，是否将优拜单车的通知关闭，如关闭通知，请开启。
+          .user_guide_line_content  2.关锁后，可以手动反向拉一下锁环，确保锁扣已经锁住，完全关闭优拜单车app，再重启查看。
+          .user_guide_line_content  3.如果多次重启优拜单车app仍在计费，请直接点击故障上报，选择将关锁故障并告知我们或拨打优拜客服热线021-61140695进行故障报修。
+          
+          .user_guide_sub_title 车费与押金
+          .user_guide_mini_title 押金退款什么时候到账？
+          .user_guide_line_content  到账时间同时依赖于微信\支付宝的退还流程，具体到账时间从实时到7个工作日不等。
+          .user_guide_mini_title 使用优拜单车怎么收费？
+          .user_guide_line_content  1.优拜自行车是一种分时租赁的出行工具。我们的定价是根据您所在地区的天气情况，出行习惯，地形结构，基础设施搭建等因素综合设定的最合理、最经济的规则。
+          .user_guide_line_content  2.使用优拜自行车的押金是298元人民币（可退）；车费方面，采用分段计费的方式，一般情况每半小时计费1元；每日不封顶。使用单车从开锁开始计费，手动关锁结束计费。第二次开锁则重新计算时间。
+          .user_guide_mini_title 假如我骑行费用超过余额，余额为负怎么办？
+          .user_guide_line_content  如果您已经在骑行中，余额为负时不会影响当次骑行，但欠费时无法开始下次骑行，申请退还押金时会自动扣除欠费，退还剩余部分押金。可尽快充值车费，点击个人中心即可充值。
+
+          .user_guide_sub_title 还车相关
+          .user_guide_mini_title 自行车要停在哪里？
+          .user_guide_line_content  优拜自行车应停放在“路边白线的区域内”，当附近没有白线时，请停放在路边不阻碍交通的空旷区域或路边其他单车聚集停放的区域。严禁停放在小区、地下及室内车库、胡同以及收费停车区域。
+          .user_guide_line_content  我们一直在很努力，很努力的做这件事，在我们的服务区域内，让你在出门时，只要走一小段路，就能迅速找到一辆车，扫一下二维码就能开锁，顺利骑行到目的地，1秒钟就能还车。为了完成这个目标，我们在持续提高定位准确度，持续缩短开锁时间，持续提升自行车骑行舒适感。高效顺畅的用车体验，是我们唯一关心的事。
+          .user_guide_line_content  为了做到这件事，我们需要您与我们一起努力，请您还车时，将自行车停在路口白线，放在容易发现的地方。想象一下如果是自己找车，自行车放在哪里最容易找到，不会阻碍交通或被交警拖走，那就是您可以停车的位置。
+          .user_guide_line_content  正确的停车姿势：首选，十字路口白线或自行车聚集区域。
+          .user_guide_line_content  正确的停车姿势：第二选择，大路口的白线或自行车聚集区域。
+          .user_guide_line_content  正确的停车姿势：第三选择，小路口的白线或自行车聚集区域。
+          .user_guide_line_content  有些小伙伴不太清楚什么叫做路边白线。白线是政府规划的公共停放非机动车的区域，如下图：
+          .user_guide_line_content  如果您所到达的目的地周围100米内没有白线，在这样的情况下：您可以将自行车停放在马路边车辆聚集停放，且不影响交通和行人通行的区域。
+            p 1.严禁停在小区内：
+            p  2.严禁停在室内及地下车库：
+            p 3.严禁停在胡同：
+            p 4.不可影响交通
+
+          .user_guide_sub_title 什么是优拜信用?
+          .user_guide_line_content 优拜信用是您在使用优拜单车过程中，产生违规行为导致的相关处罚措施，如果您违反了优拜的一些规则，可能会被我们暂时关进“小黑屋”反省，在“小黑屋”期间您将无法使用优拜单车，但不会影响正常的充值或退还押金。刑满释放后您就能恢复正常使用，您也可以通过“优异表现”来减刑，早一点离开“小黑屋”。
+          .user_guide_line_content 具体违规刑期规则如下:
+          table.mytable
+            tr
+              th.line 违规项
+              th.line1 小黑屋刑期
+            tr
+              td.line 违规停车（停在小区、马路中央、地下车库、单位大院以及其他非正常提车区域）
+              td 10天
+            tr
+              td.line 忘记锁车但是被成功找回
+              td 15天
+            tr
+              td.line 忘记锁车最后导致车辆丢失
+              td 60天
+            tr
+              td.line 加装私锁
+              td 60天
+            tr
+              td.line 违反交规被交警阻拦导致车辆扣押或弃车
+              td 60天
+            tr
+              td.line 非法移车（将车转移出当前城市）
+              td 100天
+
+          .user_guide_line_content 对于违反了规则的小伙伴，是可以找我们的客服MM提出申诉，如果核实下来确实不是您的责任，我们会立即将您释放出来，并给予“错判补偿”。
+
+          .endcontent
+
+            
+
+
+
+          
+          
+
+  
+ 

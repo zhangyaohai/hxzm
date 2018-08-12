@@ -1,0 +1,232 @@
+@import "./define"
+
+html,body
+  height 100%
+  width 100%
+.container
+  height 100%
+  width 100%
+  background #00e285
+  position relative
+
+.bg-div
+  position absolute
+  width 100%
+  height 100%
+  z-index 0
+  display flex
+  align-items center
+  img
+    width:100%
+    margin-top:40px
+.content-block
+  z-index 10
+  position absolute
+  width 100%
+  top 34px
+  display flex
+  flex-direction column
+  align-items center
+  .logo-div
+    width 91px
+    img
+      width 100%
+  .div-circle
+    width 140px
+    height 59px
+    margin-top 20px
+    background url('../img/circle2circle.png') no-repeat
+    background-size 140px 59px
+    display flex
+    justify-content space-between
+    align-items center
+    overflow: auto
+    .circle
+      width 40px
+      height 40px
+      line-height 50px
+      border-radius 50%
+      text-align center
+      display flex
+      align-items center
+      justify-content center
+      background-color rgba(0,0,0,0.5)
+      i
+        font-size 28px
+    .left
+      margin-left 10px
+      color #00e285
+      i
+        margin-top 0px
+    .right
+      margin-right 10px
+      color #fd9200
+      i
+        font-weight 500
+        margin-left 1px
+
+.number
+  margin  0 5px 5px;
+  padding  0 20px;
+  background-color  #f7f5f5;
+  height  3em;
+  line-height  3em;
+  text-align  center;
+  color  #000;
+.number.choose
+  background-color  $color-primary
+  color  #fff
+.money
+  color  #000
+  font-weight  bold
+.deposit-tip
+  margin  1.9em 2em 0.8em
+  color  #fd9200
+.deposit-btn
+  width  90%
+.a-tip
+  color  #7f7f7f
+  margin  0.8em;
+  display  inline-block;
+img.avatar
+  width 80px
+  height 80px
+  border-radius 40px
+  border 0px
+.user-name
+  font-size 16px
+  color #212121
+.modal-opacity.weui-dialog
+  background-color rgba(0,0,0,0.75)
+  color #00e587
+  .ubike-dialog__bd
+    color #00e587
+
+.road
+  height 12px
+  position absolute
+  width 100%
+  left 0
+  bottom 0
+  background url("../img/road.png") repeat-x
+.biker
+  position absolute
+  left 30px
+  bottom 0
+  img
+    width: 40px
+
+.cloud
+  position absolute
+.cloud-left
+  top 15px
+  left 15px
+  width 51px
+.cloud-top
+  right 40px
+  top 10px
+  width 30px
+.cloud-right
+  top 40px
+  right 9px
+  width 20px
+
+.mss
+  z-index 10
+  width: 100%
+  position: absolute;
+  bottom: 15%;
+  background-color: transparent
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  .mssscan.mssactive,.mssmanual.mssactive
+    border-radius: 25px
+    z-index: 2
+    background-color: rgba(69,69,69,1)
+  .acontent
+    text-align: center;
+    line-height: 50px;
+  .icon
+    width 18px;
+    height 18px;
+    margin 16px 3px 16px 3px;
+  .mssscan
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: rgba(0,0,0,0.5)
+    color: #fff
+    width: 140px
+    border-top-left-radius: 25px
+    border-bottom-left-radius: 25px
+  .mssmanual
+    margin-left: -22px
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: rgba(0,0,0,.5)
+    color: #fff
+    width: 140px
+    border-top-right-radius: 25px
+    border-bottom-right-radius: 25px
+  .mss-tip
+    position absolute
+    left 0
+    bottom -60px
+    width 100%
+    text-align center
+
+.weui-dialog.number-dialog
+  width 90%
+  max-width 90%
+  background: none
+  .weui-dialog__ft:after
+    border none
+  .ubike-dialog__bd
+    margin 0 0 20px
+    .ubike-dialog-tip
+       color #fd9200
+       margin-top 10px
+  .numbers
+    display flex
+    flex 1
+    width: 100%
+    .number-bg
+      height 56px
+      background rgba(2, 198, 109, 0.7)
+      width 40px
+      margin-left 4px
+      color #fff
+      line-height 56px
+      font-size 30px
+      text-align center
+    input
+      width 9999px
+      position absolute
+      height 56px
+      opacity 0
+      right 0
+    input:focus
+      text-indent -9999em
+
+.slideDown-transition
+  transform translate(-50%,-50%)
+.slideDown-enter
+  animation slideInDown .5s
+.slideDown-leave
+  animation slideOutDown .1s
+
+@keyframes slideInDown
+  from
+    transform translate3d(-50%, -200%, 0)
+    visibility visible
+
+  to
+    transform translate3d(-50%, -50%, 0)
+
+@keyframes slideOutDown
+  from
+    transform: translate3d(-50%, -50%, 0)
+  to
+    transform: translate3d(-50%, 300%, 0)

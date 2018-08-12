@@ -1,0 +1,112 @@
+body,html
+  height:100%
+#app
+  height:100%
+.header
+  background-color: #fff
+  position: relative
+  height: 55%
+  img.bg
+    display: block
+    width: 100%
+  .overlay
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0px
+    top: 0px
+    img.avatar
+      width: 80px
+      height: 80px
+      border-radius: 40px
+      border: 0px
+      background-color: #fff
+      margin: 0 auto 10px auto
+    .name
+      font-size: 18px
+      text-align: center
+    .flex-block
+      display: flex
+      justify-content: space-around
+      width: 100%
+      margin-top: 10px
+      line-height: 20px
+      .title
+        font-size: 14px
+      .title.primary
+        color: rgb(2, 198, 109)
+        font-size: 18px
+        font-weight: bold
+      .sub-title
+        color: #aaa
+        font-size: 12px
+    .line
+      width: 95%
+      border-bottom: 1px solid #ddd
+      margin-top: 15px
+    button
+      width: 90%
+      border-radius: 5px
+      height: 40px
+      background-color: rgb(2, 198, 109)
+      color: #fff
+      margin-top: 15px
+.map-layer
+  height: 60%
+  width: 100%
+
+.buttonline
+ text-align: center
+ margin-top: 50px
+
+.shareicon
+  width: 24px
+  height: 24px
+
+.solid
+  margin: 10px 0px
+  height: 40px
+  width: 80%
+  padding: 8px 30px;
+  border-radius: 6px
+  font-size: 15px
+  color: #fff
+  display: flex
+  justify-content: center;
+  background-color: #00e587;
+  &:disabled
+    background-color: $color-grey
+  .mycontent
+    line-height: 24 px
+    padding: 0px 10px
+
+.mask-input
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  
+.mask-input-dialog
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0px;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 3px;
+  overflow: hidden;
+
+.show-dialog
+  width: 100%
+  background-color: transparent
+
+.dismiss
+  width: 30%
+  margin: 50px 0px
+  height: 30px
+  background-color: #00e587;
+  color: #fff
+  font-size: 15px

@@ -1,0 +1,172 @@
+@import "./define"
+
+
+.rightmask
+  position: absolute
+  width: 42px
+  height: 42px
+  left: 20px
+  top: 20px
+  background-color: transparent
+  border-radius: 10px
+  display: flex
+  justify-content: center;
+  img.right
+    margin-top: 4px
+    height: 30px
+   
+
+.header
+  background-color: #eee
+  position: relative
+  img.bg
+    display: block
+    width: 100%
+  .overlay
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0px
+    top: 0px
+    img.avatar
+      width: 80px
+      height: 80px
+      border-radius: 40px
+      border: 0px
+      background-color: #fff
+      margin: -10% auto 10px auto
+    .name
+      font-size: 18px
+      text-align: center
+
+.balance-info
+  height: 170px
+  background-color: #fff
+  padding: 5px 15px
+  .title
+    margin-top 10px
+    font-size: 16px
+  .amount
+    padding: 15px
+    text-align: center
+    font-size: 40px
+    color: $color-vice
+    font-weight: 500
+    margin-bottom: 5px
+  button
+    display: block
+    width: 150px
+    margin: auto
+
+.user-steps
+  height: 105px
+  background-color: #fff
+  display: flex
+  flex-direction: column
+  .steps
+    flex: 1
+    padding: 0px 48px
+    display: flex
+    flex-direction: row
+    .steplines
+      flex: 1
+      display: flex
+      flex-direction: row
+      .stepline
+        margin-top: 40px
+        flex: 1
+        height: 2px
+        background-color: #fd9200
+        overflow: hidden
+    .stepdots
+      position: absolute
+      left: 0
+      display: flex
+      width: 100%
+      padding-right: 48px
+      padding-left: 48px
+      background-color: transparent
+      flex-direction: row
+      .stepbox
+        flex: 1
+        padding-top: 37px
+        .stepdotend
+          position: absolute
+          right: 0px
+          margin-right: 45px
+          width: 8px
+          height: 8px
+          border-radius: 4px
+          background-color: #fd9200
+          border: 1px solid #fd9200
+        .bikeiend
+          position: absolute
+          top: 10px
+          right: 0px
+          margin-right: 35px
+          margin-left: -13px
+          width: 30px
+          height: 20px
+          background: url('../img/bike-i.png') center center no-repeat
+          background-size: 30px 20px
+        .stepdot
+          position: absolute
+          top: 0px
+          width: 8px
+          height: 8px
+          border-radius: 4px
+          background-color: #fd9200
+          border: 1px solid #fd9200
+        .bikei
+          position: absolute
+          top: 10px
+          margin-left: -13px
+          width: 30px
+          height: 20px
+          background: url('../img/bike-i.png') center center no-repeat
+          background-size: 30px 20px
+    .stepline
+      margin-top: 40px
+      flex: 1
+      height: 1px
+      background-color: #d8d8d8
+      overflow: hidden
+    .stepdot
+      position: absolute
+      width: 6px
+      height: 6px
+      margin-top: 37px
+      border-radius: 3px
+
+      background-color: #321
+  .steps-button
+    flex: 1
+    padding: 0px 10px
+    display: flex
+    justify-content: space-around
+    button
+      width: 64px
+      border-radius: 5px
+      height: 22px
+      background-color: #fd9200
+      font-size: 10px
+      color: #fff
+    
+.changebuttoncolor
+  background-color: #fd9200
+
+.other
+  margin-bottom: 20px
+
+.myahref
+  height: 22px
+
+.ltop
+  margin-top: 10px
+
+.rightline
+  position: absolute
+  right: 15px
+  height: 14px
+  margin: 18px 0px
+  transform: rotate(-180deg);

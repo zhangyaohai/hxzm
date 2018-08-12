@@ -1,0 +1,19 @@
+extends layout/default.jade
+
+block head
+  meta(http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate")
+  meta(http-equiv="Pragma" content="no-cache")
+  meta(http-equiv="Expires" content="0")
+  title 联系客服
+
+block body
+  #app
+    .table
+      .row
+        .title 工作日 周一至周五 09:00 - 20:00
+      .row
+        .title 客服电话 021-61140695
+        img.pull-right(src="/img/icon-call.png" style="width: 32px" @click="gotocall('02161140695')")
+
+block js
+  +js("/js/contact.js")

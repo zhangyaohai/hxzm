@@ -1,0 +1,30 @@
+extends layout/default.jade
+
+block head  
+  title signup
+  +css("/css/authentication.css")
+
+block body
+  .input-panel
+    .row
+      input.plain.full-width(type="text" placeholder="请输入姓名")
+    .row
+      .radio-group.flex-row-center
+        span.option.flex-row-center
+          input(type="radio", name="type", checked)
+          .title 身份证
+        span.option.flex-row-center
+          input(type="radio", name="type")
+          .title 护照
+    .row
+      input.plain.full-width(type="text", placeholder="请输入证件号")
+  .padding-container
+    button.solid.full-width 确定
+    
+
+block js
+  +js("/js/authentication.js")
+
+
+  
+ 

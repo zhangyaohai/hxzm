@@ -1,0 +1,29 @@
+extends layout/default.jade
+
+block head  
+  title signup
+  +css("/css/sign_up.css")
+
+block body 
+  #app(v-cloak)
+    .b(style='margin-top: 15px')
+    .table
+      .row
+        img.icon(src="/img/icon-account.png")
+        input(type="tel" v-model="phoneNo" placeholder="请输入手机号")
+      .row
+        img.icon(src="/img/icon-verification-code.png")
+        input(type="tel" v-model="code" placeholder="请输入验证码")
+        button.solid.code.pull-right(:disabled="counter!=0" @click="getCode()") {{ btnText }}
+    .padding-container
+      button.solid.full-width(:class="{'hidden': !isLogin}", :disabled="!(phoneNo && code)" @click="signup()") 登录
+      p.userprofile 确定表示同意 
+         a.userprofilehref(href="./user_item.html")《用户说明责任条款》
+
+
+block js
+  +js("/js/sign_up.js")
+
+
+  
+ 

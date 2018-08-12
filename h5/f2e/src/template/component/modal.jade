@@ -1,0 +1,16 @@
+mixin modal(title, okBtnText, okClick, isHideOnClick)
+  .modal
+    if isHideOnClick
+      .weui-mask(@click="isShowModal=false")
+    else
+      .weui-mask
+    .weui-dialog(v-if="isShowModal" transition="slideDown")(class!=attributes.class)
+      .ubike-block
+          if title
+            .weui-dialog__hd.ubike-dialog__bd
+              .weui-dialog__title #{title}
+          .weui-dialog__bd.ubike-dialog__bd
+            block
+      if okBtnText != false
+        .weui-dialog__ft
+          a.weui-dialog__btn.ubike__btn_primary(href="javascript:;" @click="#{okClick}") #{okBtnText}

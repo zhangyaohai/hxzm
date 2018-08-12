@@ -1,0 +1,47 @@
+extends layout/default.jade
+include component/status_bar.jade
+include component/loading.jade
+
+block head  
+  title 充值
+  +css("/css/recharge.css")
+  +css("/css/loading.css")
+
+block body
+  .mystatusbar(:class="{'hidden':!wxloaded}")
+    +statusBar('微信初始化完成')
+  #app(v-cloak :class="{'hidden':!loaded}")
+    .loading(:class="{'hidden':payloaded}")
+      +myLoading()
+    .info-panel.flex-col-center
+      div 当前余额
+      div ¥{{ balance }}
+    .input-panel.flex-col-center
+      input(type="number" v-model="fee" placeholder="请输入您要充值的金额")
+    .quick
+      button.quick_change(@click="setfee(10)", :style="{'background-color': fee == 10?'#00E587':'#fff','color': fee == 10?'#fff':'#000'}") 10 元
+      button.quick_change(@click="setfee(20)", :style="{'background-color': fee == 20?'#00E587':'#fff','color': fee == 20?'#fff':'#000'}") 20 元
+    .quick
+      button.quick_change(@click="setfee(50)", :style="{'background-color': fee == 50?'#00E587':'#fff','color': fee == 50?'#fff':'#000'}") 50 元
+      button.quick_change(@click="setfee(100)", :style="{'background-color': fee == 100?'#00E587':'#fff','color': fee == 100?'#fff':'#000'}") 100 元
+    .payment-panel.table
+      .row
+        img.icon(src="/img/icon-wechat-pay.png")
+        .title 微信支付
+        input.pull-right(type="radio" name="type" v-model="channal" value=0 checked) 
+      //- .row
+      //-   img.icon(src="/img/icon-alipay.png")
+      //-   .title 支付宝支付
+      //-   input.pull-right(type="radio" name="type" v-model="channal" value=1)
+    .padding-container
+      button.solid.full-width(@click="pay()", :disabled="!(fee && payloaded)") 确定
+    
+
+block js
+  +js("/js/jweixin-1.0.0.js")
+  +js("/js/recharge.js")
+
+
+
+  
+ 

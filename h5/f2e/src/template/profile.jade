@@ -1,0 +1,67 @@
+extends layout/default.jade
+
+block head  
+  title 我的优拜
+  +css("/css/profile.css")
+
+block body
+  #app.container(v-cloak :class="{'hidden': !loaded}")
+    .header
+      img.bg(src="/img/profile-bg.png")
+      .overlay.flex-col-center
+        img.avatar(:src="avatar")
+        .name {{ name }}
+      a.rightmask(href="./home.html")
+        img.right(src="/img/back-back.png")
+    .user-steps(v-if="status!=20")
+      .steps
+        .steplines
+          .stepline(:style="{'background-color': step1line}")
+          .stepline(:style="{'background-color': step2line}")
+          .stepline(:style="{'background-color': step3line}")
+        .stepdots
+          .stepbox
+            .bikei(:class="{'hidden': !(status==0)}")
+            .stepdot(:style="{'background-color': dot1color}")
+          .stepbox
+            .bikei(:class="{'hidden': !(status==10)}")
+            .stepdot(:style="{'background-color': dot2color,'border': dot2border}")
+          .stepbox
+            .bikei(:class="{'hidden': !(status==40)}")
+            .stepdot(:style="{'background-color': dot3color, 'border': dot3border}")
+            .stepdotend(:style="{'background-color': dot4color, 'border': '1px solid #acabb3'}")
+            .bikeiend(:class="{'hidden':!(status==20)}")
+      .steps-button
+
+        button.rowbutton(:disabled="!(status==0)", :style="{'background-color': (status==0?'rgba(0,229,135,1)':'#d8d8d8')}") 手机绑定
+        a.myahref(:href="status==10?'./ic_verify.html':'javascript:volid(0);'")
+          button.rowbutton(:disabled="!(status==10)", :style="{'background-color': (status==10?'rgba(0,229,135,1)':'#d8d8d8')}") 实名认证
+        a.myahref(:href="status==40?'./deposit.html':'javascript:volid(0);'")
+          button.rowbutton(:disabled="!(status==40)", :style="{'background-color': (status==40?'rgba(0,229,135,1)':'#d8d8d8')}") 缴纳押金
+        button.rowbutton(:disabled="!(status==20)", :style="{'background-color': (status==20?'rgba(0,229,135,1)':'#d8d8d8')}")  开始用车
+    .as(v-else)
+      .balance-info
+        .title 账户余额（元）
+        .amount {{ balance }}
+        a(href="./recharge.html")
+          button.solid.recharge 充值
+    .other.table.ltop
+      a(href="./expense_history.html").row
+        .title 账户消费记录
+        img(src='/img/arror.png').rightline
+      a(href="./contact.html").row
+        .title 联系客服
+        img(src='/img/arror.png').rightline
+      a(href="./settings.html").row
+        .title 个人设置
+        img(src='/img/arror.png').rightline
+      a(href="./user_guide.html").row
+        .title 用户指南
+        img(src='/img/arror.png').rightline
+
+block js
+  +js("/js/profile.js")
+
+
+  
+ 

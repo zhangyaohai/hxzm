@@ -1,0 +1,57 @@
+@import "./define"
+
+.tabs
+  height: 50px
+  display: flex
+  justify-content: center
+  padding-top: 13px
+  .tab 
+    margin: 0px 30px
+    font-size: 16px
+    color: #acacac
+    position: relative
+    .angle
+      width: 20px
+      height: 20px
+      background-color: #fff
+      position: absolute
+      bottom: -13px
+      left: 0px
+      right: 0px
+      margin: 0px auto
+      transform: rotate(45deg)
+      display: none
+  .tab.active
+    color: $color-primary
+    .angle
+      display: block 
+    
+.table
+  .row
+    img.icon
+      width: 20px
+      height: auto
+    input
+      width: 60%
+      height: 40px
+      margin-right: 10px
+      z-index: 1
+
+.userprofile
+  padding: 10px 0px;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  color: #acabb3;
+
+.userprofilehref
+  color: #00e587
+  
+button.code
+  font-size: 12px
+  height: 30px
+  corner-radius: 15px
+  min-width: 88px
+
+button.submit
+  margin-top: 10px

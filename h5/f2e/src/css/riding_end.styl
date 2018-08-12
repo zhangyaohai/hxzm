@@ -1,0 +1,134 @@
+html,body
+  width 100%
+  height 100%
+  background-color  #fff
+  overflow hidden
+  
+.contain
+  text-align  center
+  display flex
+  width 100%
+  height 100%
+  position fixed
+  z-index 1001
+  top 0
+  left 0
+  justify-content center
+  overflow hidden
+
+
+.block
+  width 170px
+  position absolute
+  top 15%
+  left 0
+  right 0
+  margin auto
+.block .bike
+  width 100%
+  position  absolute
+  left 0
+  z-index 1000
+
+.block .bike-tire
+  position  absolute
+  -webkit-animation  backRotate 0.5s infinite linear
+  animation  backRotate 0.5s infinite linear
+  width  75px
+  z-index  800
+
+.block .bike-tire.back
+  left -30px
+  top 48px
+
+.block .bike-tire.front
+  right -5px
+  top  48px
+  transform rotate(90deg)
+  animation frontRotate 0.5s infinite linear
+
+.text
+  margin-top 75%
+  color #fff
+  font-size 18px
+
+.block .bike-dengzi
+  width 50px
+  position absolute
+  top 66px
+  left  38px
+  animation  backRotate 1s infinite linear
+
+.block .bike-dengzi.front
+  z-index  1001
+
+.bike-infos
+  display flex
+  flex 1
+  justify-content center
+  align-items center
+  position absolute
+  bottom 25%
+  width 100%
+  left 0
+  .bike-info
+    height 93px
+    width 100%
+    background #00db81
+    color: #fff
+    text-align center
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+    .bike-info__title
+      font-size 18px
+      font-weight bold
+    .bike-info__subtitle
+      font-size 12px
+  .border
+    border-left 1px solid #212121
+    border-right 1px solid #212121
+.bike-info__tip
+  text-align center
+  position absolute
+  width 100%
+  bottom 8%
+  left 0
+  a
+   color #fd9200
+
+.info-panel
+  margin-top 22px
+  img
+    width 76px
+  .title
+    font-size 16px
+    margin 10px 0 0
+  .amount
+    font-size 40px
+ 
+.tip
+  text-align  center
+  color  #666
+
+.bottom-tip
+  text-align  center
+  position  absolute
+  bottom  60px
+  color  #fd9200
+  width 100%
+  padding  0 20px
+
+.table
+  .row
+    .desc
+      color  rgb(172, 171, 179)
+
+
+@keyframes backRotate
+  to
+    transform rotate(360deg) translate(0, 0)
+@keyframes frontRotate
+  to
+    transform rotate(450deg)

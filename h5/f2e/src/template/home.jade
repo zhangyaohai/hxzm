@@ -1,0 +1,130 @@
+extends layout/default.jade
+include component/modal.jade
+
+block head
+  title 优拜单车
+  +css("/css/home.css")
+  +css("/vendor/js/weui.min.css")
+  +css("//at.alicdn.com/t/font_m9y874ggrr9q9f6r.css")
+
+block body
+  #app.container(v-cloak)
+    .content-block
+      .logo-div
+        img(src="../img/logo-text.png")
+      .div-circle
+        a(@click="goToProfile").circle.left
+          i.icon.icon-user
+        a(href="contact.html").circle.right
+          i.icon.icon-kefu
+    .bg-div
+       img(src="../img/bg.png")
+    .mss
+      a.mssscan(:class="{'mssactive': scanBtn}", @click="wxscan")
+        img.icon(src="/img/scan.png")
+        .acontent 扫码开锁
+      a.mssmanual(:class="{'mssactive': !scanBtn}", @click="inputBtn")
+        img.icon(src="/img/fill.png")
+        .acontent 输入
+      .mss-tip
+        div *注：直接点击 [扫码开锁]或[手动开锁]
+        div 解锁身边车辆 即可用车
+    template(v-if="isShow('login')")
+      +modal('欢迎使用优拜单车', '我准备好了', 'login')
+        img.avatar(:src="user.avatar")
+        .user-name {{user.userName || '猜不到'}}
+        .ubike-cells
+          .weui-cell.ubike-cell
+            .weui-cell__hd
+              .ubike-icon
+                i.icon.icon-user
+            .weui-cell__bd
+              input.weui-input(type="number" placeholder="请输入手机号" v-model="user.phone")
+          .weui-cell.ubike-cell
+            .weui-cell__hd
+              .ubike-icon
+                i.icon.icon-check
+            .weui-cell__bd
+              input.weui-input(type="number" pattern="[0-9A-Za-z]*" placeholder="请输入验证码" v-model="user.randCode")
+            .weui-cell__ft
+              button.weui-vcode-btn.ubike__btn_primary(:class="{'weui-btn_disabled':vcode.disabled}" @click="getCode")(:disabled="vcode.disabled") {{vcode.btnText}}
+
+    template(v-if="isShow('realName')")
+      +modal('实名认证', '好 的', 'verify')
+        .ubike-cells
+          .weui-cell.ubike-cell
+            .weui-cell__hd
+              .ubike-icon
+                i.icon.icon-user
+            .weui-cell__bd
+              input.weui-input(placeholder="请输入姓名" v-model="user.realName")
+          .weui-cell.ubike-cell
+            .weui-cell__hd
+              .ubike-icon
+                i.icon.icon-check
+            .weui-cell__bd
+              input.weui-input(pattern="[0-9]*[A-Za-z]{1}" placeholder="请输入身份证号" v-model="user.icCardNo")
+
+    template(v-if="isShow('firstUseCar')")
+      +modal('你好！{{user.realName || "你的名字"}}', '解 锁', 'unlock')(class="modal-opacity")
+        div 这是您第一次使用优拜单车
+        div 我们送了您1元骑行基金
+        div(style="margin-bottom:26px") 并且暂时免去了押金
+        img.cloud.cloud-left(src="../img/cloud.png")
+        img.cloud.cloud-top(src="../img/cloud.png")
+        img.cloud.cloud-right(src="../img/cloud.png")
+        .road
+        .biker
+          img(src="../img/biker.png")
+
+
+    template(v-if="isShow('charge')")
+      +modal('可用余额', '确 定', 'chargeBalance', true)
+        .money {{charge.balance || 0.00}}
+        .ubike-cells
+          .weui-cell.ubike-cell
+            .weui-cell__bd
+              input.weui-input(type="number" v-model="charge.amount" pattern="[1-9]*0*" placeholder="请输入您要充值的金额" style="text-align:center")
+        .weui-flex(v-for="ms in charge.money")
+          .weui-flex__item(v-for="m in ms")
+            .number(:class="{choose:m == charge.amount}" @click="charge.amount=m") {{m}} 元
+
+    template(v-if="isShow('depositPay')")
+      +modal('缴纳押金', false)
+        .money ¥ {{(deposit.money / 100).toFixed(2)}}
+        .deposit-tip ＊注：芝麻信用评分高于650分可免除押金
+        a.weui-btn.ubike__btn_primary.deposit-btn(href="https://ubike.cn/v1/static/downloadapp.html") 我要免押
+        a.a-tip(@click="payDeposit") 我不管，我就要缴纳押金🙄 >>
+
+    template(v-if="!scanBtn")
+      .weui-mask(@click="scanBtn=true")
+      .weui-dialog.number-dialog
+        .ubike-dialog__bd
+          .numbers
+            input(type="tel" @input="inputNumber" v-model="bikeNum" id="bikeNumber" autofocus)
+            .number-bg(v-for="n in 11") {{!!bikeNum[n] ? bikeNum[n] : ''}}
+          .ubike-dialog-tip
+            div 若因输错车辆编号造成车辆丢失
+            div 您将承担高达1000元的责任赔偿
+        .weui-dialog__ft
+          button.weui-btn.weui-btn_primary.ubike__btn_primary(:class="{'weui-btn_disabled':(bikeNum+'').length!=11}" @click="unlock")(:disabled="(bikeNum+'').length!=11") 确定
+
+    div(v-show="loading")
+      .weui-mask_transparent
+      .weui-toast
+        .weui-loading.weui-icon_toast
+        p.weui-toast__content 加载中
+
+
+    template(v-if="isShow('downloadTip')")
+      +modal('', '立即下载App', 'goToDownload')(class="modal-opacity")
+        div(style="color:#fff;margin-bottom:20px;margin-top:-10px") 啊哦 ~ 实在抱歉，这辆车只有用“优拜单车”App才能开哦~赶快去下载吧
+        .road
+        .biker
+          img(src="../img/biker.png")
+
+
+block js
+  +js("/js/jweixin-1.0.0.js")
+  +js("/js/home.js")
+

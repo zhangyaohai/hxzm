@@ -1,0 +1,93 @@
+extends layout/default.jade
+
+block head  
+  title 举报违规
+  +css("/css/report.css")
+  +css("/vendor/js/weui.min.css")
+  
+block body 
+  #app(v-cloak)
+    .report
+      .title 举报违规可以获得宝贵的U币哦
+      .scanline
+        .scani(@click='scan()')
+          img.scanicon(src="/img/scan.png")
+        .myc
+          .input-content(@click='inputNum()', v-if='showTxt', :style="{'margin': inputN==null ?'10px 0px 16px 0px':'-10px 0px 16px 0px'}")
+            p.cc 扫描二维码或手动输入编号
+          input.input-content-input(v-model="inputN", v-if='!showTxt',placeholder="请输入车辆编号", v-on:input="checklength()")
+          .input-re(v-if='inputN!=null')
+            p.ccc 重新扫描或输入
+    .weui-cells.weui-cells_checkbox(style='margin-top:0px')
+      lable.weui-cell.weui-check__label(@click='checked(0)')
+        .weui-cell__hd
+          input.weui-check(id='1', type='checkbox', :checked="option[0]", value='违规停车（停进小区，地库等）')
+          i.weui-icon-checked
+        .weui-cell__bd
+          p.rule 违规停车（停进小区，地库等）
+      lable.weui-cell.weui-check__label(@click='checked(1)')
+        .weui-cell__hd
+          input.weui-check(type='checkbox', :checked="option[1]", value='忘记锁车但是被成功找回')
+          i.weui-icon-checked
+        .weui-cell__bd
+          p.rule 忘记锁车但是被成功找回
+      lable.weui-cell.weui-check__label(@click='checked(2)')
+        .weui-cell__hd
+          input.weui-check(type='checkbox', :checked="option[2]", value='忘记锁车导致车辆丢失')
+          i.weui-icon-checked
+        .weui-cell__bd
+          p.rule 忘记锁车导致车辆丢失
+      lable.weui-cell.weui-check__label(@click='checked(3)')
+        .weui-cell__hd
+          input.weui-check(type='checkbox', :checked='option[3]', value='加装私锁／与其他车锁在一起')
+          i.weui-icon-checked
+        .weui-cell__bd
+          p.rule 加装私锁／与其他车锁在一起
+      lable.weui-cell.weui-check__label(@click='checked(4)')
+        .weui-cell__hd
+          input.weui-check(type='checkbox', :checked="option[4]", value='交警阻拦弃车')
+          i.weui-icon-checked
+        .weui-cell__bd
+          p.rule 交警阻拦弃车
+      lable.weui-cell.weui-check__label(@click='checked(5)')
+        .weui-cell__hd
+          input.weui-check(type='checkbox', :checked="option[5]", value='非法移动买车')
+          i.weui-icon-checked
+        .weui-cell__bd
+          p.rule 非法移动买车
+    .photo_select
+      .page__bd(style='padding: 0px 5px;background-color: #fff;')
+        .weui-gallery
+          span.weui-gallery__img(style="background-image:url(./images/pic_160.png)")
+          .weui-gallery__opr
+            a.weui-gallery__del
+              i.weui-icon-delete.weui-icon_gallery-delete
+        .weui-cells.weui-cells_form(style='margin-top:0px')
+          .weui-cell
+            .weui-cell__bd
+              .weui-uploader
+                .weui-uploader__hd
+                  p.weui-uploader__title(style="font-size: 14px;color: #989898") 拍照可方便我们核实您的举报更易获得U币
+                div#myimg.muy(:class="{'weui-uploader__input-box': !image}", :style="{background-image: image}")
+                  div#process(v-show='uploadimg').weui-uploader__file-content {{uploadProcess}}%
+                  input(type='file' accept="Image/*" multiple="").weui-uploader__input#uploaderInput
+    .note
+      .weui-cells.weui-cells_form(style='margin-top:5px')
+        .weui-cell.txt
+          .weui-cell__bd.txt
+            textarea#ta.txt.weui-textarea(placeholder="备注", rows="3", v-model='notetext', maxlength="140")
+            .weui-textarea-counter
+            span(style='color: #989898') 还可输入{{ getlength(notetext) }}字
+    .postreport
+      button(@click='postContent()').solid.full-width(style='width: 85%;margin: 5px 0px') 提 交
+
+
+block js
+  +js("http://gosspublic.alicdn.com/aliyun-oss-sdk-4.3.0.min.js")
+  +js("/js/jweixin-1.0.0.js")
+  +js("/js/report.js")
+  
+
+
+
+ 

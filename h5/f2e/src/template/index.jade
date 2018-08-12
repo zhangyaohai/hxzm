@@ -1,0 +1,88 @@
+extends layout/default.jade
+include component/status_bar.jade
+
+block head
+  title 优拜单车
+  +css("/css/index.css")
+  +css("/css/dialog.css")
+
+block body
+  #app.container(v-cloak :class="{'hidden': !loaded}")
+    .dialog1(v-if="dialogShow")
+      .weui-mask
+      .weui-dialog
+        .weui-dialog__hd
+          strong.weui-dialog__title 很抱歉
+        .weui-dialog__bd(style="color:#353535") 蓝牙版安卓APP已经可以使用啦，苹果手机的亲们还要再等等哦，很快就能使用啦！
+        .weui-dialog__ft
+          a.weui-dialog__btn.weui-dialog__btn_primary(@click="dialogShow=false") 知道了
+    .running(v-if='user_login&&running')
+      .runningLine
+        .runningC 用车中……
+        .runningC 手动关锁即可结束计费
+      .runningStatus
+        .runningT
+          .t {{rundata.time}}
+          .c 骑行时间(min)
+        .runningD
+          .t {{rundata.distance * 1000 | currency ''}}
+          .c 骑行距离(m)
+        .runningF
+          .t {{rundata.fee}}
+          .c 预计费用(元)
+    #map.map-layer
+    #route.map-layer.hidden
+    button.map-button.relocation(@click="relocation()")
+    button.map-button.refresh(@click="refresh()")
+    a(href="./profile.html")
+      button.map-button.profile(:style="{'margin-top' : user_login&&running? '88px' : '0px'}")
+    button.map-button.notify(v-if='user_login', @click="notify()", :style="{'margin-top' : user_login&&running? '88px' : '0px'}")
+    .mss(v-if='showTab')
+      a.mssscan(:class="{'mssactive': !inputScan}", @click="wxscan()", :style="{'background-color' : !inputScan? '#454545' : '#787878'}")
+        img.icon(src="/img/scan.png")
+        .acontent 扫码开锁
+      a.mssmanual(:class="{'mssactive': inputScan}", @click="inputNum()", :style="{'background-color' : inputScan? '#454545' : '#787878'}")
+        img.icon(src="/img/fill.png")
+        .acontent 手动
+    .location-marker(:class="{'hidden': !showMarker}")
+    .mask-input(v-if='inputScan')
+      .mask-input-dialog
+        .input-dialog_hd
+        .input-dialog_bd
+          input.inputline(type="number" v-model="bikeNum" placeholder="请输入车辆编号", v-on:input="checklength()")
+        .input-dialog_ft
+          button.input-dialog-confirm(@click="dismissInput()") 取消
+          button.input-dialog-confirm-right(:disabled="!bikeNum", :style="{'color': bikeNum?'#444':'#ccc'}" @click="postNum()") 确定
+    .mask-input(v-if='showDial')
+      .mask-input-dialog
+        .input-dialog_hd
+          .input-dialog_bd_title 优拜单车
+        .input-dialog_bd {{ diaContent }}
+        .input-dialog_ft
+          button.input-dialog-confirm(@click="dismiss()") 确定
+    .mask-input(v-if='isNewUser')
+      .newer(:style="{'left': screen_width}")
+        .newer_i
+          img.newer_i(src='/img/newer_package.png', style='width: 100%')
+          p.balance {{balance}}
+          p.balance_small {{balance}}
+        img.newer_close(src='/img/close_icon.png', @click='dismissNew()')
+    .mystatusbar(:class="{'hidden':!wxloaded}")
+      +statusBar(" {{ statusContent }} ")
+    .feedback(v-if='showNotify')
+      .weui-mask(@click="dismissNotify()")
+      .weui-actionsheet.weui-actionsheet_toggle
+        .weui-actionsheet__menu
+          .weui-actionsheet__cell(@click="goto(2)") 举报违停
+          .weui-actionsheet__cell(@click="goto(1)") 客户服务
+        .weui-actionsheet__action
+          .weui-actionsheet__cell(@click="dismissNotify()") 取消
+block js
+  +js("https://webapi.amap.com/maps?v=1.3&key=3ceeb40306848901aaaa05227096eaaf&plugin=AMap.Geolocation,AMap.Walking")
+  +js("/js/jweixin-1.0.0.js")
+  +js("/js/index.js")
+  
+
+
+  
+ 

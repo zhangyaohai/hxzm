@@ -1,0 +1,20 @@
+extends layout/default.jade
+
+block head  
+  title 解锁
+  +css("/css/unlock.css")
+  
+block body 
+  #app.lockcontain(v-cloak)
+    img(src="/img/homebg.png" style="width:100%;filter: blur(7px);")
+    .lockmask
+    .content
+      .circle-block
+        .circle(:class="{'rotating':result==1, 'fail':result==0}")
+        .img-logo__block
+          img.img-logo(src="../img/logo-pure.png")(:class="{'breath':result==1}")
+        .text {{text}}
+        .text(style="color:#fe3824") {{failText}}
+
+block js
+  +js('../js/unlock.js')

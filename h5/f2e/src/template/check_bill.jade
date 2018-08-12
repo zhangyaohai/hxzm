@@ -1,0 +1,42 @@
+extends layout/default.jade
+
+block head  
+  title 骑行结束
+  +css("/css/check_bill.css")
+
+block body
+  #app(v-cloak)
+    .header
+      .bg(src="/img/profile-bg.png")
+      .overlay.flex-col-center
+        img.avatar(src="/img/bill.png")
+        .name 支付成功
+        .fee {{ fee | currency '¥'}}
+    .other.table.ltop.nex
+      .row 
+        .title 骑行里程
+        .content {{ distance | currency ''}} km
+      .row(style='border-bottom: 1px solid #f1f1f1;')
+        .title 骑行时间
+        .content {{ during }} 分钟
+      .buttonline
+        .solid.full-width(@click='share()')
+          img(src='/img/share-icon.png').shareicon
+          p.mycontent 分享我的行程
+    .mask-input(v-if="show", @click='dismiss()')
+      .mask-input-dialog
+        .input-dialog_hd
+        .input-dialog_bd
+          img(src='/img/share.png').show-dialog
+        .input-dialog_ft
+          button(@click='dismiss()').dismiss 知道了
+
+block js
+  +js("/js/jweixin-1.0.0.js")
+  +js("/js/check_bill.js")
+
+
+
+
+  
+ 

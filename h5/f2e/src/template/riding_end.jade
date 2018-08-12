@@ -1,0 +1,62 @@
+extends layout/default.jade
+
+block head  
+  title 骑行中
+  +css("/css/riding_end.css")
+  +css("/vendor/js/weui.min.css")
+
+block body
+  #app.container(v-cloak)
+    template(v-if="riding")
+      img(src="/img/homebg.png" style="width:100%;filter: blur(7px);")
+      .weui-mask
+      .contain
+        .block
+          img.bike(src="../img/bikenotire.png")
+          img.bike-tire.back(src="../img/tire.png")
+          img.bike-tire.front(src="../img/tire.png")
+          img.bike-dengzi.back(src="../img/dengzi-back.png")
+          img.bike-dengzi.front(src="../img/dengzi-front.png")
+          .text 骑行中......
+        .bike-infos
+          .bike-info
+            .bike-info__title 哈雷
+            .bike-info__subtitle 车辆类型
+          .bike-info.border
+            .bike-info__title {{orderInfo.time}}
+            .bike-info__subtitle 用车时长(min)
+          .bike-info
+            .bike-info__title {{orderInfo.amount}}
+            .bike-info__subtitle 计费(元)
+        .bike-info__tip
+          a(href="contact.html") 关锁计费未结束？点击这里
+    template(v-if="!riding")
+      .info-panel.flex-col-center
+        img(src="/img/ubike-logo-circle.png")
+        .title 支付成功
+        .amount {{orderInfo.amount.toFixed(2)}} 元
+        .tip 明细：骑行费用{{orderInfo.amount.toFixed(2)}}元  账户余额{{orderInfo.balance}}元
+      .table(style="margin-top:20px")
+        .row(style="border-top:1px solid #f1f1f1")
+          .title 车辆类型
+          .desc.pull-right 哈雷
+        .row
+          .title 骑行时间
+          .desc.pull-right {{orderInfo.time}}分钟
+        .row
+      .bottom-tip(v-if="first")
+        p 您的免押骑行已结束
+        p(style="margin-bottom:14px") 如果想继续免除押金，请前往App设置
+        a.weui-btn.ubike__btn_primary(href="https://ubike.cn/v1/static/downloadapp.html") 我要免押
+
+block js
+  +js("/js/jweixin-1.0.0.js")
+  +js("/js/riding_end.js")
+
+    
+
+  
+
+
+  
+ 

@@ -1,0 +1,14 @@
+{
+  "development": {
+    "apiUrl": "https://testapi.ubike.cn",
+    "searchUrl": "https://searchtest.ubike.cn",
+    "siteUrl": "testme.ubike.cn",
+    "deposit": "1"
+  },
+  "production": {
+    "apiUrl": "https://prodapi.ubike.cn",
+    "searchUrl": "https://searchprod.ubike.cn",
+    "siteUrl": "prod.ubike.cn",
+    "deposit": "29800"
+  }
+}
