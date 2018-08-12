@@ -21,29 +21,29 @@ public class CommonConfig {
         String accessKeySecret = "iIGUmWQUvrv4oBxaTZ9gkhUzV79PNN";
         final String    bucket = "xmyd-ops-0001";
      * */
-    @Value("${aliyun.endPoint}")
-    private String endPoint;
-    
-    @Value("${aliyun.accessKeyId}")
-    private String accessKeyId;
-    
-    @Value("${aliyun.accessKeySecret}")
-    private String accessKeySecret;
-    
-    @Value("${aliyun.bucket}")
-    private String bucket;
-    
-    @Value("${aliyun.imagurl}")
-    private String imageurl;
-    
-    @Value("${jiguang.masterKey}")
-    private String masterKey;
-    
-    @Value("${jiguang.appKey}")
-    private String appKey;
-    
-    @Value("${jiguang.isProd}")
-    private boolean isProd;
+//    @Value("${aliyun.endPoint}")
+//    private String endPoint;
+//
+//    @Value("${aliyun.accessKeyId}")
+//    private String accessKeyId;
+//
+//    @Value("${aliyun.accessKeySecret}")
+//    private String accessKeySecret;
+//
+//    @Value("${aliyun.bucket}")
+//    private String bucket;
+//
+//    @Value("${aliyun.imagurl}")
+//    private String imageurl;
+//
+//    @Value("${jiguang.masterKey}")
+//    private String masterKey;
+//
+//    @Value("${jiguang.appKey}")
+//    private String appKey;
+//
+//    @Value("${jiguang.isProd}")
+//    private boolean isProd;
     
 
     @Bean
@@ -56,10 +56,10 @@ public class CommonConfig {
                 .create();
     }
     
-    @Bean
-    public OSSClient ossClient() {
-        return new OSSClient(endPoint, accessKeyId, accessKeySecret);
-    }
+//    @Bean
+//    public OSSClient ossClient() {
+//        return new OSSClient(endPoint, accessKeyId, accessKeySecret);
+//    }
     
 //    @Bean
 //    public Push push() {

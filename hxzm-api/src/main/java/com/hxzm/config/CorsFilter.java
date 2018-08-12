@@ -1,4 +1,4 @@
-package com.hxzm.common.kit.config;
+package com.hxzm.config;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

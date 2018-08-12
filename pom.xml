@@ -11,25 +11,30 @@
     <modules>
         <module>hxzm-api</module>
         <module>common</module>
+        <module>cache</module>
     </modules>
 
     <properties>
-        <springboot.version>1.5.14.RELEASE</springboot.version>
-        <spring.version>4.3.18.RELEASE</spring.version>
-        <httpclient.version>4.4.1</httpclient.version>
-        <poi.version>3.10-FINAL</poi.version>
-    </properties>
+        <!-- <springboot.version>1.5.14.RELEASE</springboot.version>-->
+           <springboot.version>2.0.4.RELEASE</springboot.version>
+
+        <!--   <spring.version>4.3.18.RELEASE</spring.version>-->
+
+               <spring.version>5.0.8.RELEASE</spring.version>
+          <httpclient.version>4.4.1</httpclient.version>
+          <poi.version>3.10-FINAL</poi.version>
+      </properties>
 
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${springboot.version}</version>
-            </dependency>
+      <dependencyManagement>
+          <dependencies>
+              <dependency>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-starter-web</artifactId>
+                  <version>${springboot.version}</version>
+              </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
+              <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>

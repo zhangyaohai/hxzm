@@ -6,14 +6,15 @@ import com.hxzm.dao.mapper.WelcomeMapper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -27,7 +28,7 @@ import java.util.Map;
  */
 @MapperScan(basePackageClasses = WelcomeMapper.class)
 @Configuration
-public class SpringConfiguration extends WebMvcConfigurerAdapter {
+public class SpringConfiguration extends WebMvcConfigurationSupport {
 
 
     @Override

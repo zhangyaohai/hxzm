@@ -12,13 +12,13 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.211:3306/cms" userId="changchong" password="123456">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/hxzm" userId="root" password="123456">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.fcjs.dao.domain" targetProject="E:\WorkSpace\settle\settle-01-workspace\cc-fcjs\service-api\src\main\java">
+        <javaModelGenerator targetPackage="com.hxzm.dao.domain" targetProject="E:\git\demo\hxzm\hxzm-api\src\main\java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -30,11 +30,14 @@
 
         <!-- 生成DAO的包名和位置-->
         <!-- XMLMAPPER生成xml映射文件, ANNOTATEDMAPPER生成的dao采用注解来写sql -->
-        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.fcjs.dao.mapper" targetProject="E:\WorkSpace\settle\settle-01-workspace\cc-fcjs\service-api\src\main\java">
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.hxzm.dao.mapper" targetProject="E:\git\demo\hxzm\hxzm-api\src\main\java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
 
-        <table tableName="t_depart_people" domainObjectName="DepartPeople" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="hxzm_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="hxzm_article" domainObjectName="Article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="hxzm_article_comment" domainObjectName="ArticleComment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="hxzm_topic" domainObjectName="Topic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     </context>
 </generatorConfiguration>
