@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: fcjs-api-server
+  profiles:
+    active: dev
+
+server:
+  tomcat:
+    basedir: /data/server/log
+    accesslog:
+      directory: logs
+      enabled: true
+      pattern: common
