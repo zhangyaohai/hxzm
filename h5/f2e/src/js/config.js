@@ -1,0 +1,1 @@
+module.exports = { API_URL: "https://testapi.ubike.cn", SITE_URL: "testme.ubike.cn", SEARCH_Url: "https://searchtest.ubike.cn", deposit:1 }
