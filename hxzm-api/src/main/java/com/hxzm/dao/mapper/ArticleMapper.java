@@ -1,14 +1,7 @@
 package com.hxzm.dao.mapper;
 
 import com.hxzm.dao.domain.Article;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 public interface ArticleMapper {
@@ -30,9 +23,11 @@ public interface ArticleMapper {
         "#{status,jdbcType=INTEGER}, #{createTime,jdbcType=DATE}, ",
         "#{updateTime,jdbcType=DATE}, #{updateUserId,jdbcType=INTEGER})"
     })
+    @Options(useGeneratedKeys = true)
     int insert(Article record);
 
     @InsertProvider(type=ArticleSqlProvider.class, method="insertSelective")
+    @Options(useGeneratedKeys = true)
     int insertSelective(Article record);
 
     @Select({

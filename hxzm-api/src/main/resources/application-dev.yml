@@ -15,7 +15,7 @@ spring:
       test-on-borrow: true
       validation-query: SELECT 1
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/test2?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&useUnicode=true&autoReconnect=true
+      url: jdbc:mysql://localhost:3306/hxzm?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&useUnicode=true&autoReconnect=true
       username: root
       password: 123456
       type: com.zaxxer.hikari.HikariDataSource
@@ -24,7 +24,7 @@ spring:
       test-on-borrow: true
       validation-query: SELECT 1
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/test3?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&useUnicode=true&autoReconnect=true
+      url: jdbc:mysql://localhost:3306/hxzm?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&useUnicode=true&autoReconnect=true
       username: root
       password: 123456
       type: com.zaxxer.hikari.HikariDataSource
@@ -33,7 +33,7 @@ spring:
       test-on-borrow: true
       validation-query: SELECT 1
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/test3?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&useUnicode=true&autoReconnect=true
+      url: jdbc:mysql://localhost:3306/hxzm?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&useUnicode=true&autoReconnect=true
       username: root
       password: 123456
       type: com.zaxxer.hikari.HikariDataSource

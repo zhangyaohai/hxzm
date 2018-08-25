@@ -7,7 +7,7 @@ block head
   +css("/css/dialog.css")
 
 block body
-  #app.container(v-cloak :class="{'hidden': !loaded}")
+ #app.container(v-cloak :class="{'hidden': !loaded}")
     .dialog1(v-if="dialogShow")
       .weui-mask
       .weui-dialog
@@ -81,8 +81,7 @@ block js
   +js("https://webapi.amap.com/maps?v=1.3&key=3ceeb40306848901aaaa05227096eaaf&plugin=AMap.Geolocation,AMap.Walking")
   +js("/js/jweixin-1.0.0.js")
   +js("/js/index.js")
-  
 
 
-  
- 
+
+

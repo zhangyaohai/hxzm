@@ -3,6 +3,7 @@ package com.hxzm.config;
 import com.hxzm.dao.common.datasource.DatabaseType;
 import com.hxzm.dao.common.datasource.DynamicRoutingDataSource;
 import com.hxzm.dao.mapper.WelcomeMapper;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -12,6 +13,7 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -102,6 +104,7 @@ public class SpringConfiguration extends WebMvcConfigurationSupport {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dynamicDataSource());
+        sessionFactory.setConfigLocation(new InputStreamResource(Resources.getResourceAsStream("mybatis-config.xml")));
         return sessionFactory.getObject();
     }
     

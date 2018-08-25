@@ -1,14 +1,7 @@
 package com.hxzm.dao.mapper;
 
 import com.hxzm.dao.domain.Topic;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 public interface TopicMapper {
@@ -26,9 +19,11 @@ public interface TopicMapper {
         "#{parentId,jdbcType=VARCHAR}, #{sortNum,jdbcType=INTEGER}, ",
         "#{level,jdbcType=INTEGER})"
     })
+    @Options(useGeneratedKeys = true)
     int insert(Topic record);
 
     @InsertProvider(type=TopicSqlProvider.class, method="insertSelective")
+    @Options(useGeneratedKeys = true)
     int insertSelective(Topic record);
 
     @Select({

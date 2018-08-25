@@ -1,5 +1,9 @@
 package com.hxzm.dao.domain;
 
+
+import lombok.Data;
+
+@Data
 public class Topic {
     private Integer id;
 
@@ -11,43 +15,5 @@ public class Topic {
 
     private Integer level;
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTopidName() {
-        return topidName;
-    }
-
-    public void setTopidName(String topidName) {
-        this.topidName = topidName == null ? null : topidName.trim();
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId == null ? null : parentId.trim();
-    }
-
-    public Integer getSortNum() {
-        return sortNum;
-    }
-
-    public void setSortNum(Integer sortNum) {
-        this.sortNum = sortNum;
-    }
-
-    public Integer getLevel() {
-        return level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
 }

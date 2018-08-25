@@ -1,14 +1,7 @@
 package com.hxzm.dao.mapper;
 
 import com.hxzm.dao.domain.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 public interface UserMapper {
@@ -32,9 +25,11 @@ public interface UserMapper {
         "#{createTime,jdbcType=DATE}, #{registeTime,jdbcType=DATE}, ",
         "#{lastLoginTime,jdbcType=DATE})"
     })
+    @Options(useGeneratedKeys = true)
     int insert(User record);
 
     @InsertProvider(type=UserSqlProvider.class, method="insertSelective")
+    @Options(useGeneratedKeys = true)
     int insertSelective(User record);
 
     @Select({
