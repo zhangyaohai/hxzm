@@ -99,10 +99,9 @@ public class AESKit {
 
     public static final void main(String[] args) throws InterruptedException {  
     	
-       String code = AESKit.me().generateToken("1273",DateTime.now().plusYears(1).getMillis());
-        System.out.println(code);
-      //  int ee = AESKit.me().parseToken("IaCj1hj35mgWBizEK8Eqj0fCvxMi9FPbAdYzYll2OJk=");
-        int ee = AESKit.me().parseToken("sBYht+2Uv8nO9k3p6Gz0V+7wnDaNkE+b8G3eoHbaL60=");
+//       String code = AESKit.me().generateToken("1273",DateTime.now().plusYears(1).getMillis());
+//        System.out.println(code);
+        int ee = AESKit.me().parseToken("MCVYr0mwdS0Zkl056yVQqIX5LspbrppflNmIjU4VAHozA=");
         System.out.println(ee);
     }
 
